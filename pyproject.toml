@@ -1,0 +1,19 @@
+[project]
+name = "bt-pdf-service"
+version = "0.1.0"
+description = "Layout-preserving PDF translation service for BookTranslator, built on BabelDOC"
+license = "AGPL-3.0-only"
+requires-python = ">=3.12,<3.13"  # babeldoc 0.7.1 breaks on 3.14 (concurrent.futures._WorkItem)
+dependencies = [
+    "babeldoc==0.7.1",
+    "fastapi>=0.115",
+    "python-multipart>=0.0.20",
+    "uvicorn>=0.30",
+]
+
+[project.scripts]
+bt-pdf-service = "bt_pdf_service.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
